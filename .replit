@@ -1,5 +1,6 @@
+modules = ["nodejs-20"]
 [workflows]
-runButton = "Static Server"
+runButton = "Project"
 
 [[workflows.workflow]]
 name = "Serve static"
@@ -22,3 +23,32 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "static-web-server -w ./.config/static-web-server.toml"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Dashboard Server"
+
+[[workflows.workflow]]
+name = "Dashboard Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd BackEndPerpustakaan && npx http-server -p 5000 -c-1"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 42817
+externalPort = 3000

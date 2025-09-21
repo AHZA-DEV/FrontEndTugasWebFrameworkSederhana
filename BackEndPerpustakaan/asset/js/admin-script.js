@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initModals();
     initSearch();
     loadDashboardStats();
+    initDashboardChart();
+    initCurrentDate();
+    
+    // Initialize logout handlers
+    const logoutLinks = document.querySelectorAll('a[data-action="logout"]');
+    logoutLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            confirmLogout();
+        });
+    });
 });
 
 // Sidebar functionality
@@ -284,11 +295,114 @@ function performSearch(query) {
     }, 1000);
 }
 
+// Chart management
+let dashboardChart = null;
+
+function initDashboardChart() {
+    const chartCanvas = document.getElementById('loansChart');
+    if (!chartCanvas || typeof Chart === 'undefined') return;
+    
+    const ctx = chartCanvas.getContext('2d');
+    dashboardChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+            datasets: [{
+                label: 'Peminjaman',
+                data: [12, 19, 15, 25, 22, 18, 14],
+                borderColor: 'rgb(13, 110, 253)',
+                backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                tension: 0.4,
+                fill: true
+            }, {
+                label: 'Pengembalian',
+                data: [8, 15, 12, 20, 18, 16, 11],
+                borderColor: 'rgb(25, 135, 84)',
+                backgroundColor: 'rgba(25, 135, 84, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    // Chart period toggle handlers
+    const periodRadios = document.querySelectorAll('input[name="chartPeriod"]');
+    periodRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            updateChartPeriod(this.id);
+        });
+    });
+}
+
+function updateChartPeriod(period) {
+    if (!dashboardChart) return;
+    
+    switch (period) {
+        case 'chartWeek':
+            dashboardChart.data.labels = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+            dashboardChart.data.datasets[0].data = [12, 19, 15, 25, 22, 18, 14];
+            dashboardChart.data.datasets[1].data = [8, 15, 12, 20, 18, 16, 11];
+            break;
+        case 'chartMonth':
+            dashboardChart.data.labels = ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'];
+            dashboardChart.data.datasets[0].data = [85, 92, 78, 88];
+            dashboardChart.data.datasets[1].data = [72, 85, 70, 82];
+            break;
+        case 'chartYear':
+            dashboardChart.data.labels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            dashboardChart.data.datasets[0].data = [320, 285, 310, 295, 340, 385, 390, 420, 375, 360, 330, 315];
+            dashboardChart.data.datasets[1].data = [298, 275, 285, 280, 325, 368, 375, 395, 350, 345, 315, 300];
+            break;
+    }
+    dashboardChart.update();
+}
+
+// Logout functionality
+function confirmLogout() {
+    if (confirm('Apakah Anda yakin ingin keluar?')) {
+        // In real application, this would clear sessions and redirect
+        showAlert('Logout berhasil! Mengalihkan...', 'success');
+        setTimeout(() => {
+            window.location.href = '../login.html';
+        }, 1500);
+    }
+}
+
+// Initialize current date
+function initCurrentDate() {
+    const dateElement = document.getElementById('currentDate');
+    if (dateElement) {
+        dateElement.textContent = new Date().toLocaleDateString('id-ID', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    }
+}
+
 // Export functions for global access
 window.AdminDashboard = {
     showAlert,
     confirmDelete,
     handleFormSubmit,
     animateNumber,
-    performSearch
+    performSearch,
+    initDashboardChart,
+    updateChartPeriod,
+    confirmLogout
 };

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - Digital Library Management System">
+    <title>Dashboard - Admin Perpustakaan</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Admin CSS -->
+    <link rel="stylesheet" href="asset/css/admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h4><i class="fas fa-book-open me-2"></i>LibraryAdmin</h4>
+        </div>
+        
+        <ul class="sidebar-nav nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html" id="nav-dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="users.html" id="nav-users">
+                    <i class="fas fa-users"></i>
+                    <span>Kelola Pengguna</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="books.html" id="nav-books">
+                    <i class="fas fa-book"></i>
+                    <span>Kelola Buku</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="loans.html" id="nav-loans">
+                    <i class="fas fa-handshake"></i>
+                    <span>Peminjaman</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html" id="nav-categories">
+                    <i class="fas fa-tags"></i>
+                    <span>Kategori</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html" id="nav-reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Laporan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html" id="nav-settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Pengaturan</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link text-danger" href="#" data-action="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Keluar</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <button class="toggle-sidebar me-3" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h5 class="mb-0">Dashboard</h5>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3">
+                <!-- Search -->
+                <div class="position-relative d-none d-md-block">
+                    <input type="text" class="form-control" placeholder="Cari..." id="searchInput" style="min-width: 250px;">
+                    <div id="searchResults" class="position-absolute bg-white border rounded shadow-sm w-100 mt-1" style="z-index: 1000;"></div>
+                </div>
+                
+                <!-- Notifications -->
+                <div class="dropdown">
+                    <button class="btn btn-link text-muted position-relative" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6em;">
+                            3
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">Notifikasi</h6></li>
+                        <li><a class="dropdown-item" href="#"><small>Buku baru ditambahkan</small></a></li>
+                        <li><a class="dropdown-item" href="#"><small>Peminjaman jatuh tempo</small></a></li>
+                        <li><a class="dropdown-item" href="#"><small>Pengguna baru terdaftar</small></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="#">Lihat semua</a></li>
+                    </ul>
+                </div>
+                
+                <!-- User Profile -->
+                <div class="dropdown">
+                    <button class="btn btn-link text-muted d-flex align-items-center" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle fs-4 me-2"></i>
+                        <span class="d-none d-md-inline">Admin</span>
+                        <i class="fas fa-caret-down ms-1"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>Profil</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog me-2"></i>Pengaturan</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" data-action="logout"><i class="fas fa-sign-out-alt me-2"></i>Keluar</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="btn btn-link text-muted d-md-none mobile-toggle" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Alert Container -->
+        <div id="alertContainer" class="container-fluid px-3 pt-2"></div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Welcome Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2>Selamat Datang, Admin!</h2>
+                            <p class="text-muted mb-0">Berikut adalah ringkasan sistem perpustakaan hari ini</p>
+                        </div>
+                        <div class="text-muted">
+                            <i class="fas fa-calendar-alt me-1"></i>
+                            <span id="currentDate"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Total Buku</h6>
+                                <h3 class="mb-0" data-stat="totalBooks">0</h3>
+                                <small class="text-success">
+                                    <i class="fas fa-arrow-up me-1"></i>
+                                    +12 bulan ini
+                                </small>
+                            </div>
+                            <div class="stat-icon text-primary">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="stat-card success">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Anggota Aktif</h6>
+                                <h3 class="mb-0" data-stat="totalMembers">0</h3>
+                                <small class="text-success">
+                                    <i class="fas fa-arrow-up me-1"></i>
+                                    +8 bulan ini
+                                </small>
+                            </div>
+                            <div class="stat-icon text-success">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="stat-card info">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Peminjaman Aktif</h6>
+                                <h3 class="mb-0" data-stat="activeLoans">0</h3>
+                                <small class="text-info">
+                                    <i class="fas fa-clock me-1"></i>
+                                    Sedang berlangsung
+                                </small>
+                            </div>
+                            <div class="stat-icon text-info">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="stat-card danger">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Terlambat</h6>
+                                <h3 class="mb-0" data-stat="overdueBooks">0</h3>
+                                <small class="text-danger">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>
+                                    Perlu tindakan
+                                </small>
+                            </div>
+                            <div class="stat-icon text-danger">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Recent Activity Row -->
+            <div class="row">
+                <!-- Chart Section -->
+                <div class="col-lg-8 mb-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Statistik Peminjaman
+                            </h6>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <input type="radio" class="btn-check" name="chartPeriod" id="chartWeek" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="chartWeek">Minggu</label>
+                                
+                                <input type="radio" class="btn-check" name="chartPeriod" id="chartMonth" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="chartMonth">Bulan</label>
+                                
+                                <input type="radio" class="btn-check" name="chartPeriod" id="chartYear" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="chartYear">Tahun</label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="loansChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="fas fa-clock me-2"></i>
+                                Aktivitas Terbaru
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex align-items-start">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                            <i class="fas fa-book fa-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <small class="text-muted">2 menit lalu</small>
+                                        <div>Buku "Harry Potter" dipinjam</div>
+                                        <small class="text-muted">oleh John Doe</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="list-group-item d-flex align-items-start">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                            <i class="fas fa-check fa-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <small class="text-muted">15 menit lalu</small>
+                                        <div>Buku "Clean Code" dikembalikan</div>
+                                        <small class="text-muted">oleh Jane Smith</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="list-group-item d-flex align-items-start">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                            <i class="fas fa-user-plus fa-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <small class="text-muted">1 jam lalu</small>
+                                        <div>Anggota baru terdaftar</div>
+                                        <small class="text-muted">Alex Johnson</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="list-group-item d-flex align-items-start">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                            <i class="fas fa-exclamation-triangle fa-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <small class="text-muted">2 jam lalu</small>
+                                        <div>Peminjaman terlambat</div>
+                                        <small class="text-muted">Buku "JavaScript Guide"</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="list-group-item text-center">
+                                    <a href="#" class="btn btn-link btn-sm">Lihat semua aktivitas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="fas fa-bolt me-2"></i>
+                                Aksi Cepat
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <a href="books.html" class="btn btn-outline-primary d-flex align-items-center w-100">
+                                        <i class="fas fa-plus me-2"></i>
+                                        Tambah Buku
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="users.html" class="btn btn-outline-success d-flex align-items-center w-100">
+                                        <i class="fas fa-user-plus me-2"></i>
+                                        Tambah Anggota
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="loans.html" class="btn btn-outline-info d-flex align-items-center w-100">
+                                        <i class="fas fa-handshake me-2"></i>
+                                        Kelola Peminjaman
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="reports.html" class="btn btn-outline-warning d-flex align-items-center w-100">
+                                        <i class="fas fa-chart-bar me-2"></i>
+                                        Lihat Laporan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+    
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    
+    <!-- Custom Admin JS -->
+    <script src="asset/js/admin-script.js"></script>
+    
+</body>
+</html>
