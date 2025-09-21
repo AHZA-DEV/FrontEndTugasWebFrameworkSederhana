@@ -102,67 +102,17 @@
             <div class="container-fluid p-4">
                 <!-- Welcome Section -->
                 <div class="row mb-4">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="welcome-section">
                             <div class="row align-items-center">
                                 <div class="col-md-6">
                                     <h2 class="mb-2">Selamat Datang, John Doe</h2>
-                                    <p class="text-muted mb-0">Dashboard Perpustakaan Digital untuk Anggota. Jelajahi koleksi buku dan kelola peminjaman Anda.</p>
-                                </div>
-                                <div class="col-md-6 text-end">
-                                    <div class="d-flex gap-2 justify-content-end">
-                                        <a href="books.html" class="btn btn-primary">
-                                            <i class="bi bi-search me-2"></i>Cari Buku
-                                        </a>
-                                        <a href="my-loans.html" class="btn btn-outline-primary">
-                                            <i class="bi bi-journal-text me-2"></i>Lihat Peminjaman
-                                        </a>
-                                    </div>
+                                    <p class="text-muted">Dashboard Perpustakaan Digital untuk Anggota. Jelajahi koleksi buku dan kelola peminjaman Anda.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Stats Cards Row -->
-                <div class="row mb-4">
-                    <!-- Buku Dipinjam -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card stat-card stat-card-blue h-100">
-                            <div class="card-body">
-                                <h6 class="card-subtitle mb-2 text-white-50">Sedang Dipinjam</h6>
-                                <h2 class="card-title text-white mb-2">3</h2>
-                                <small class="text-white-50">Dari maksimal 5 buku</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Peminjaman -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card stat-card stat-card-purple h-100">
-                            <div class="card-body">
-                                <h6 class="card-subtitle mb-2 text-white-50">Total Peminjaman</h6>
-                                <h2 class="card-title text-white mb-2">47</h2>
-                                <small class="text-white-50">Sepanjang waktu</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Buku Favorit -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card stat-card stat-card-indigo h-100">
-                            <div class="card-body">
-                                <h6 class="card-subtitle mb-2 text-white-50">Kategori Favorit</h6>
-                                <h2 class="card-title text-white mb-2">Teknologi</h2>
-                                <small class="text-white-50">15 buku dipinjam</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions & Current Loans -->
-                <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-6 mb-8">
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -174,7 +124,7 @@
                                 <div class="loan-list">
                                     <div class="d-flex align-items-center mb-3">
                                         <img src="https://via.placeholder.com/50x65/007bff/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
+                                        <div class="flex-grow-1 card-title">
                                             <div class="fw-bold">Clean Code</div>
                                             <small class="text-muted">Jatuh tempo: 29 Jan 2024</small>
                                         </div>
@@ -182,7 +132,7 @@
                                     </div>
                                     <div class="d-flex align-items-center mb-3">
                                         <img src="https://via.placeholder.com/50x65/28a745/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
+                                        <div class="flex-grow-1 card-title">
                                             <div class="fw-bold">JavaScript Guide</div>
                                             <small class="text-muted">Jatuh tempo: 25 Jan 2024</small>
                                         </div>
@@ -190,101 +140,11 @@
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <img src="https://via.placeholder.com/50x65/dc3545/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
+                                        <div class="flex-grow-1 card-title">
                                             <div class="fw-bold">Design Patterns</div>
                                             <small class="text-muted">Jatuh tempo: 02 Feb 2024</small>
                                         </div>
                                         <span class="badge bg-success">Aktif</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="card-title mb-0">Buku Rekomendasi</h5>
-                                    <a href="books.html" class="text-primary text-decoration-none">Jelajahi</a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="recommendation-list">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <img src="https://via.placeholder.com/50x65/6366f1/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
-                                            <div class="fw-bold">The Pragmatic Programmer</div>
-                                            <small class="text-muted">Teknologi • Tersedia</small>
-                                        </div>
-                                        <button class="btn btn-sm btn-outline-primary">Pinjam</button>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-3">
-                                        <img src="https://via.placeholder.com/50x65/f59e0b/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
-                                            <div class="fw-bold">You Don't Know JS</div>
-                                            <small class="text-muted">Teknologi • Tersedia</small>
-                                        </div>
-                                        <button class="btn btn-sm btn-outline-primary">Pinjam</button>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <img src="https://via.placeholder.com/50x65/10b981/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
-                                        <div class="flex-grow-1">
-                                            <div class="fw-bold">Refactoring</div>
-                                            <small class="text-muted">Teknologi • Tersedia</small>
-                                        </div>
-                                        <button class="btn btn-sm btn-outline-primary">Pinjam</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Popular Categories -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Kategori Populer</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <a href="books.html?category=technology" class="card border-primary text-decoration-none h-100">
-                                            <div class="card-body text-center">
-                                                <i class="bi bi-laptop text-primary" style="font-size: 2rem;"></i>
-                                                <h6 class="card-title mt-2">Teknologi</h6>
-                                                <p class="card-text">1,234 buku</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <a href="books.html?category=fiction" class="card border-success text-decoration-none h-100">
-                                            <div class="card-body text-center">
-                                                <i class="bi bi-book-half text-success" style="font-size: 2rem;"></i>
-                                                <h6 class="card-title mt-2">Fiksi</h6>
-                                                <p class="card-text">890 buku</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <a href="books.html?category=science" class="card border-warning text-decoration-none h-100">
-                                            <div class="card-body text-center">
-                                                <i class="bi bi-flask text-warning" style="font-size: 2rem;"></i>
-                                                <h6 class="card-title mt-2">Sains</h6>
-                                                <p class="card-text">567 buku</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <a href="books.html?category=history" class="card border-info text-decoration-none h-100">
-                                            <div class="card-body text-center">
-                                                <i class="bi bi-clock-history text-info" style="font-size: 2rem;"></i>
-                                                <h6 class="card-title mt-2">Sejarah</h6>
-                                                <p class="card-text">432 buku</p>
-                                            </div>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
