@@ -31,15 +31,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Dashboard Server"
+args = "Web Server"
 
 [[workflows.workflow]]
-name = "Dashboard Server"
+name = "Web Server"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd BackEndPerpustakaan && npx http-server -p 5000 -c-1"
+args = "npx http-server -p 5000 -c-1"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
@@ -48,7 +48,3 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 42817
-externalPort = 3000

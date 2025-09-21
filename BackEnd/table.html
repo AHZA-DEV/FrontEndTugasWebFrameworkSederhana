@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables - Skydash Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-speedometer2 text-primary me-2"></i>
+                    <span class="fw-bold">Skydash</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-layout-sidebar"></i>
+                            <span>Layouts</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                            <span>Widgets</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-ui-radios"></i>
+                            <span>UI Elements</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-layers"></i>
+                            <span>Advanced UI</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Form elements</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Editors</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Charts</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="table.html" class="menu-link">
+                            <i class="bi bi-table"></i>
+                            <span>Tables</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-app-indicator"></i>
+                            <span>Popups</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="bi bi-bell"></i>
+                            <span>Notification</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Search now">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=J" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-2">Tables</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Tables</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary">
+                                    <i class="bi bi-plus-circle me-2"></i>Add New
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basic Table -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Basic Table</h5>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-secondary btn-sm">
+                                            <i class="bi bi-download"></i> Export
+                                        </button>
+                                        <button class="btn btn-outline-secondary btn-sm">
+                                            <i class="bi bi-funnel"></i> Filter
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Role</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Last Login</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=JD" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <span>John Doe</span>
+                                                    </div>
+                                                </td>
+                                                <td>john.doe@example.com</td>
+                                                <td><span class="badge bg-primary">Admin</span></td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>2 hours ago</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/28a745/ffffff?text=JS" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <span>Jane Smith</span>
+                                                    </div>
+                                                </td>
+                                                <td>jane.smith@example.com</td>
+                                                <td><span class="badge bg-info">Editor</span></td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>1 day ago</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/dc3545/ffffff?text=MJ" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <span>Mike Johnson</span>
+                                                    </div>
+                                                </td>
+                                                <td>mike.johnson@example.com</td>
+                                                <td><span class="badge bg-secondary">User</span></td>
+                                                <td><span class="badge bg-warning">Inactive</span></td>
+                                                <td>3 days ago</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/ffc107/ffffff?text=SB" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <span>Sarah Brown</span>
+                                                    </div>
+                                                </td>
+                                                <td>sarah.brown@example.com</td>
+                                                <td><span class="badge bg-info">Editor</span></td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>5 minutes ago</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/6f42c1/ffffff?text=DW" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <span>David Wilson</span>
+                                                    </div>
+                                                </td>
+                                                <td>david.wilson@example.com</td>
+                                                <td><span class="badge bg-secondary">User</span></td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>1 hour ago</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <nav aria-label="Table pagination">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-muted">
+                                            Showing 1 to 5 of 25 entries
+                                        </div>
+                                        <ul class="pagination mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#">1</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Striped Table -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Striped Table</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Stock</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Laptop Pro 15"</td>
+                                                <td>Electronics</td>
+                                                <td>$1,299.00</td>
+                                                <td>25</td>
+                                                <td><span class="badge bg-success">In Stock</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wireless Mouse</td>
+                                                <td>Accessories</td>
+                                                <td>$29.99</td>
+                                                <td>150</td>
+                                                <td><span class="badge bg-success">In Stock</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gaming Keyboard</td>
+                                                <td>Accessories</td>
+                                                <td>$89.99</td>
+                                                <td>0</td>
+                                                <td><span class="badge bg-danger">Out of Stock</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Monitor 27" 4K</td>
+                                                <td>Electronics</td>
+                                                <td>$399.00</td>
+                                                <td>12</td>
+                                                <td><span class="badge bg-warning">Low Stock</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bordered Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Bordered Table</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Date</th>
+                                                <th>Total</th>
+                                                <th>Payment</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#ORD-001</td>
+                                                <td>Alice Cooper</td>
+                                                <td>2024-01-15</td>
+                                                <td>$156.80</td>
+                                                <td>Credit Card</td>
+                                                <td><span class="badge bg-success">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-002</td>
+                                                <td>Bob Martin</td>
+                                                <td>2024-01-14</td>
+                                                <td>$89.90</td>
+                                                <td>PayPal</td>
+                                                <td><span class="badge bg-warning">Processing</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-003</td>
+                                                <td>Carol Davis</td>
+                                                <td>2024-01-13</td>
+                                                <td>$234.50</td>
+                                                <td>Bank Transfer</td>
+                                                <td><span class="badge bg-info">Shipped</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

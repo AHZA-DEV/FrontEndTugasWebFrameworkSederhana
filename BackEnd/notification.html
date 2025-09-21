@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Skydash Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-speedometer2 text-primary me-2"></i>
+                    <span class="fw-bold">Skydash</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="layouts.html" class="menu-link">
+                            <i class="bi bi-layout-sidebar"></i>
+                            <span>Layouts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="widgets.html" class="menu-link">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                            <span>Widgets</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="ui-elements.html" class="menu-link">
+                            <i class="bi bi-ui-radios"></i>
+                            <span>UI Elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="advanced-ui.html" class="menu-link">
+                            <i class="bi bi-layers"></i>
+                            <span>Advanced UI</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="form-elements.html" class="menu-link">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Form elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="editors.html" class="menu-link">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Editors</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="charts.html" class="menu-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Charts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="table.html" class="menu-link">
+                            <i class="bi bi-table"></i>
+                            <span>Tables</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="popups.html" class="menu-link">
+                            <i class="bi bi-app-indicator"></i>
+                            <span>Popups</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="notification.html" class="menu-link">
+                            <i class="bi bi-bell"></i>
+                            <span>Notification</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Search now">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=J" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-2">Notifications <span class="badge bg-success">PRO</span></h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Notifications</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" id="markAllRead">
+                                    <i class="bi bi-check-all me-2"></i>Mark All as Read
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Types -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Notification Types</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <button class="btn btn-outline-info w-100" id="showInfoNotification">
+                                            <i class="bi bi-info-circle me-2"></i>Info Notification
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <button class="btn btn-outline-success w-100" id="showSuccessNotification">
+                                            <i class="bi bi-check-circle me-2"></i>Success Notification
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <button class="btn btn-outline-warning w-100" id="showWarningNotification">
+                                            <i class="bi bi-exclamation-triangle me-2"></i>Warning Notification
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <button class="btn btn-outline-danger w-100" id="showErrorNotification">
+                                            <i class="bi bi-x-circle me-2"></i>Error Notification
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Notifications -->
+                <div class="row mb-4">
+                    <div class="col-md-8 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Recent Notifications</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                                            Filter
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" data-filter="all">All</a></li>
+                                            <li><a class="dropdown-item" href="#" data-filter="unread">Unread</a></li>
+                                            <li><a class="dropdown-item" href="#" data-filter="read">Read</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush" id="notificationList">
+                                    <div class="list-group-item notification-item unread" data-type="success">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-check-circle text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">Payment Successful</h6>
+                                                    <small class="text-muted">2 min ago</small>
+                                                </div>
+                                                <p class="mb-1">Your payment of $299.00 has been processed successfully.</p>
+                                                <small class="text-muted">Transaction ID: #TXN-2024-001</small>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item mark-read" href="#"><i class="bi bi-check me-2"></i>Mark as Read</a></li>
+                                                        <li><a class="dropdown-item delete-notification" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="list-group-item notification-item unread" data-type="warning">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-exclamation-triangle text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">Storage Almost Full</h6>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                </div>
+                                                <p class="mb-1">Your storage is 85% full. Please free up some space.</p>
+                                                <small class="text-muted">Used: 8.5 GB of 10 GB</small>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item mark-read" href="#"><i class="bi bi-check me-2"></i>Mark as Read</a></li>
+                                                        <li><a class="dropdown-item delete-notification" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="list-group-item notification-item read" data-type="info">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-info-circle text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">New Feature Available</h6>
+                                                    <small class="text-muted">3 hours ago</small>
+                                                </div>
+                                                <p class="mb-1">Check out our new dashboard analytics feature.</p>
+                                                <small class="text-muted">Learn more about advanced reporting tools.</small>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item mark-unread" href="#"><i class="bi bi-circle me-2"></i>Mark as Unread</a></li>
+                                                        <li><a class="dropdown-item delete-notification" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="list-group-item notification-item read" data-type="danger">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-x-circle text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">Login Failed</h6>
+                                                    <small class="text-muted">1 day ago</small>
+                                                </div>
+                                                <p class="mb-1">Failed login attempt detected from unknown device.</p>
+                                                <small class="text-muted">IP: 192.168.1.100 - Location: Unknown</small>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item mark-unread" href="#"><i class="bi bi-circle me-2"></i>Mark as Unread</a></li>
+                                                        <li><a class="dropdown-item delete-notification" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Notification Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">
+                                            Email Notifications
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
+                                        <label class="form-check-label" for="pushNotifications">
+                                            Push Notifications
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                        <label class="form-check-label" for="smsNotifications">
+                                            SMS Notifications
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <hr>
+                                
+                                <h6>Categories</h6>
+                                <div class="mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="systemAlerts" checked>
+                                        <label class="form-check-label" for="systemAlerts">
+                                            System Alerts
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="securityAlerts" checked>
+                                        <label class="form-check-label" for="securityAlerts">
+                                            Security Alerts
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="paymentAlerts" checked>
+                                        <label class="form-check-label" for="paymentAlerts">
+                                            Payment Alerts
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="promotionalAlerts">
+                                        <label class="form-check-label" for="promotionalAlerts">
+                                            Promotional
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-primary w-100">Save Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Statistics -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Notification Statistics</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <h3 class="text-primary">24</h3>
+                                        <p class="text-muted mb-0">Total Today</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3 class="text-warning">3</h3>
+                                        <p class="text-muted mb-0">Unread</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3 class="text-success">156</h3>
+                                        <p class="text-muted mb-0">This Week</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3 class="text-info">89%</h3>
+                                        <p class="text-muted mb-0">Read Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Notification button handlers
+        document.getElementById('showInfoNotification')?.addEventListener('click', function() {
+            showNotificationToast('info', 'Information', 'This is an informational notification.');
+        });
+
+        document.getElementById('showSuccessNotification')?.addEventListener('click', function() {
+            showNotificationToast('success', 'Success', 'Operation completed successfully!');
+        });
+
+        document.getElementById('showWarningNotification')?.addEventListener('click', function() {
+            showNotificationToast('warning', 'Warning', 'Please be careful with this action.');
+        });
+
+        document.getElementById('showErrorNotification')?.addEventListener('click', function() {
+            showNotificationToast('danger', 'Error', 'An error occurred. Please try again.');
+        });
+
+        // Mark all as read
+        document.getElementById('markAllRead')?.addEventListener('click', function() {
+            const unreadNotifications = document.querySelectorAll('.notification-item.unread');
+            unreadNotifications.forEach(notification => {
+                notification.classList.remove('unread');
+                notification.classList.add('read');
+                notification.style.opacity = '0.7';
+            });
+            showNotificationToast('success', 'Success', 'All notifications marked as read.');
+        });
+
+        // Individual notification actions
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.mark-read')) {
+                e.preventDefault();
+                const notificationItem = e.target.closest('.notification-item');
+                notificationItem.classList.remove('unread');
+                notificationItem.classList.add('read');
+                notificationItem.style.opacity = '0.7';
+            }
+            
+            if (e.target.closest('.mark-unread')) {
+                e.preventDefault();
+                const notificationItem = e.target.closest('.notification-item');
+                notificationItem.classList.remove('read');
+                notificationItem.classList.add('unread');
+                notificationItem.style.opacity = '1';
+            }
+            
+            if (e.target.closest('.delete-notification')) {
+                e.preventDefault();
+                const notificationItem = e.target.closest('.notification-item');
+                notificationItem.remove();
+                showNotificationToast('info', 'Deleted', 'Notification deleted.');
+            }
+        });
+
+        // Filter notifications
+        document.addEventListener('click', function(e) {
+            if (e.target.hasAttribute('data-filter')) {
+                e.preventDefault();
+                const filter = e.target.getAttribute('data-filter');
+                const notifications = document.querySelectorAll('.notification-item');
+                
+                notifications.forEach(notification => {
+                    if (filter === 'all' || notification.classList.contains(filter)) {
+                        notification.style.display = 'block';
+                    } else {
+                        notification.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        function showNotificationToast(type, title, message) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toastId = 'toast-' + Date.now();
+            
+            const iconMap = {
+                info: 'bi-info-circle',
+                success: 'bi-check-circle',
+                warning: 'bi-exclamation-triangle',
+                danger: 'bi-x-circle'
+            };
+            
+            const colorMap = {
+                info: 'bg-info',
+                success: 'bg-success',
+                warning: 'bg-warning',
+                danger: 'bg-danger'
+            };
+            
+            const textColorMap = {
+                warning: 'text-dark',
+                default: 'text-white'
+            };
+            
+            const textColor = textColorMap[type] || textColorMap.default;
+            const closeButtonClass = type === 'warning' ? 'btn-close' : 'btn-close btn-close-white';
+            
+            const toastHtml = `
+                <div id="${toastId}" class="toast" role="alert">
+                    <div class="toast-header ${colorMap[type]} ${textColor}">
+                        <i class="bi ${iconMap[type]} me-2"></i>
+                        <strong class="me-auto">${title}</strong>
+                        <small class="me-2">now</small>
+                        <button type="button" class="${closeButtonClass}" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `;
+            
+            toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+            
+            const toastElement = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+            
+            // Remove toast element after it's hidden
+            toastElement.addEventListener('hidden.bs.toast', function() {
+                toastElement.remove();
+            });
+        }
+    });
+    </script>
+</body>
+</html>

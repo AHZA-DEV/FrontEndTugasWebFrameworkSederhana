@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editors - Skydash Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-speedometer2 text-primary me-2"></i>
+                    <span class="fw-bold">Skydash</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="layouts.html" class="menu-link">
+                            <i class="bi bi-layout-sidebar"></i>
+                            <span>Layouts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="widgets.html" class="menu-link">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                            <span>Widgets</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="ui-elements.html" class="menu-link">
+                            <i class="bi bi-ui-radios"></i>
+                            <span>UI Elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="advanced-ui.html" class="menu-link">
+                            <i class="bi bi-layers"></i>
+                            <span>Advanced UI</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="form-elements.html" class="menu-link">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Form elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="editors.html" class="menu-link">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Editors</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="charts.html" class="menu-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Charts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="table.html" class="menu-link">
+                            <i class="bi bi-table"></i>
+                            <span>Tables</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="popups.html" class="menu-link">
+                            <i class="bi bi-app-indicator"></i>
+                            <span>Popups</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="notification.html" class="menu-link">
+                            <i class="bi bi-bell"></i>
+                            <span>Notification</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Search now">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=J" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="mb-2">Editors</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Editors</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Text Editor -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Rich Text Editor</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="editor-toolbar mb-3">
+                                    <div class="btn-toolbar" role="toolbar">
+                                        <div class="btn-group me-2" role="group">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Bold">
+                                                <i class="bi bi-type-bold"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Italic">
+                                                <i class="bi bi-type-italic"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Underline">
+                                                <i class="bi bi-type-underline"></i>
+                                            </button>
+                                        </div>
+                                        <div class="btn-group me-2" role="group">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Align Left">
+                                                <i class="bi bi-text-left"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Align Center">
+                                                <i class="bi bi-text-center"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Align Right">
+                                                <i class="bi bi-text-right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="btn-group me-2" role="group">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Bullet List">
+                                                <i class="bi bi-list-ul"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Numbered List">
+                                                <i class="bi bi-list-ol"></i>
+                                            </button>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Insert Link">
+                                                <i class="bi bi-link"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" title="Insert Image">
+                                                <i class="bi bi-image"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editor-content">
+                                    <textarea class="form-control" rows="10" placeholder="Start typing your content here...">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+This is a sample rich text editor interface. In a real implementation, this would be replaced with a proper WYSIWYG editor like TinyMCE, CKEditor, or Quill.
+
+Key features of a rich text editor include:
+• Bold, italic, and underline formatting
+• Text alignment options
+• Bulleted and numbered lists
+• Insert links and images
+• Font size and color selection
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Editor -->
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Code Editor</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                                            JavaScript
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">HTML</a></li>
+                                            <li><a class="dropdown-item" href="#">CSS</a></li>
+                                            <li><a class="dropdown-item" href="#">JavaScript</a></li>
+                                            <li><a class="dropdown-item" href="#">Python</a></li>
+                                            <li><a class="dropdown-item" href="#">JSON</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="code-editor">
+                                    <pre class="bg-dark text-light p-3 rounded"><code>// JavaScript Code Example
+function calculateSum(a, b) {
+    return a + b;
+}
+
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+console.log('Sum:', sum);
+
+// API call example
+fetch('/api/data')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Data:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Markdown Editor</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Markdown Input</h6>
+                                        <textarea class="form-control font-monospace" rows="12" placeholder="Enter Markdown...">
+# Heading 1
+## Heading 2
+
+**Bold text** and *italic text*
+
+- List item 1
+- List item 2
+- List item 3
+
+[Link text](https://example.com)
+
+```javascript
+console.log('Code block');
+```
+
+> Blockquote example
+
+| Column 1 | Column 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+                                        </textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Preview</h6>
+                                        <div class="border p-3 rounded bg-light" style="height: 290px; overflow-y: auto;">
+                                            <h1>Heading 1</h1>
+                                            <h2>Heading 2</h2>
+                                            <p><strong>Bold text</strong> and <em>italic text</em></p>
+                                            <ul>
+                                                <li>List item 1</li>
+                                                <li>List item 2</li>
+                                                <li>List item 3</li>
+                                            </ul>
+                                            <p><a href="#">Link text</a></p>
+                                            <pre class="bg-dark text-light p-2 rounded"><code>console.log('Code block');</code></pre>
+                                            <blockquote class="border-start border-primary ps-3">
+                                                Blockquote example
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor Settings -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Editor Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Theme</label>
+                                            <select class="form-select">
+                                                <option>Light</option>
+                                                <option>Dark</option>
+                                                <option>Monokai</option>
+                                                <option>Solarized</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Font Size</label>
+                                            <select class="form-select">
+                                                <option>12px</option>
+                                                <option selected>14px</option>
+                                                <option>16px</option>
+                                                <option>18px</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="lineNumbers" checked>
+                                                <label class="form-check-label" for="lineNumbers">
+                                                    Show line numbers
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="wordWrap">
+                                                <label class="form-check-label" for="wordWrap">
+                                                    Word wrap
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="syntaxHighlight" checked>
+                                                <label class="form-check-label" for="syntaxHighlight">
+                                                    Syntax highlighting
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Editor Actions</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary">
+                                        <i class="bi bi-save me-2"></i>Save Document
+                                    </button>
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="bi bi-download me-2"></i>Export as PDF
+                                    </button>
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="bi bi-printer me-2"></i>Print Document
+                                    </button>
+                                    <button class="btn btn-outline-info">
+                                        <i class="bi bi-share me-2"></i>Share Document
+                                    </button>
+                                </div>
+                                
+                                <hr>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-clock me-1"></i>
+                                        Last saved: 2 minutes ago
+                                    </small>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="autoSave" checked>
+                                        <label class="form-check-label" for="autoSave">
+                                            Auto-save
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets - Skydash Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-speedometer2 text-primary me-2"></i>
+                    <span class="fw-bold">Skydash</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="layouts.html" class="menu-link">
+                            <i class="bi bi-layout-sidebar"></i>
+                            <span>Layouts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="widgets.html" class="menu-link">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                            <span>Widgets</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="ui-elements.html" class="menu-link">
+                            <i class="bi bi-ui-radios"></i>
+                            <span>UI Elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="advanced-ui.html" class="menu-link">
+                            <i class="bi bi-layers"></i>
+                            <span>Advanced UI</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="form-elements.html" class="menu-link">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Form elements</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="editors.html" class="menu-link">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Editors</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="charts.html" class="menu-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Charts</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="table.html" class="menu-link">
+                            <i class="bi bi-table"></i>
+                            <span>Tables</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="popups.html" class="menu-link">
+                            <i class="bi bi-app-indicator"></i>
+                            <span>Popups</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="notification.html" class="menu-link">
+                            <i class="bi bi-bell"></i>
+                            <span>Notification</span>
+                            <span class="badge bg-success ms-auto">PRO</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Search now">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=J" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-2">Widgets <span class="badge bg-success">PRO</span></h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Widgets</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Widgets -->
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-primary">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h4 class="card-title">2,847</h4>
+                                        <p class="card-text">Total Users</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="bi bi-people" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h4 class="card-title">$12,486</h4>
+                                        <p class="card-text">Revenue</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="bi bi-currency-dollar" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-warning">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h4 class="card-title">186</h4>
+                                        <p class="card-text">Orders</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="bi bi-cart" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-info">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h4 class="card-title">92.8%</h4>
+                                        <p class="card-text">Performance</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="bi bi-graph-up" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Widgets -->
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Progress Widgets</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Server Load</span>
+                                        <span>78%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Memory Usage</span>
+                                        <span>45%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-0">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Storage</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Activity Feed</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item mb-3">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                    <i class="bi bi-plus text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="mb-1">New user registered</h6>
+                                                <small class="text-muted">2 minutes ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item mb-3">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                    <i class="bi bi-check text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="mb-1">Order completed</h6>
+                                                <small class="text-muted">15 minutes ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                    <i class="bi bi-exclamation text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="mb-1">Server alert</h6>
+                                                <small class="text-muted">1 hour ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Widgets -->
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Donut Chart</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <div class="position-relative">
+                                        <div class="spinner-border text-primary" role="status" style="width: 150px; height: 150px;">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                            <h4 class="mb-0">73%</h4>
+                                            <small class="text-muted">Complete</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Weather Widget</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="weather-widget">
+                                    <i class="bi bi-sun text-warning" style="font-size: 4rem;"></i>
+                                    <h3 class="mt-2">24°C</h3>
+                                    <p class="text-muted mb-0">Sunny</p>
+                                    <small class="text-muted">New York, NY</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Quick Actions</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary">
+                                        <i class="bi bi-plus me-2"></i>Add New Item
+                                    </button>
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="bi bi-download me-2"></i>Export Data
+                                    </button>
+                                    <button class="btn btn-outline-info">
+                                        <i class="bi bi-gear me-2"></i>Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
