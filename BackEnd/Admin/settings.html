@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan - Admin Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-shield-check text-primary me-2"></i>
+                    <span class="fw-bold">Admin Panel</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-users.html" class="menu-link">
+                            <i class="bi bi-people"></i>
+                            <span>Kelola Anggota</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-books.html" class="menu-link">
+                            <i class="bi bi-book"></i>
+                            <span>Kelola Buku</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-loans.html" class="menu-link">
+                            <i class="bi bi-journal-arrow-up"></i>
+                            <span>Kelola Peminjaman</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-categories.html" class="menu-link">
+                            <i class="bi bi-tags"></i>
+                            <span>Kelola Kategori</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="reports.html" class="menu-link">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Laporan</span>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="settings.html" class="menu-link">
+                            <i class="bi bi-gear"></i>
+                            <span>Pengaturan</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Cari pengaturan...">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    2
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=A" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-2">Pengaturan Sistem</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Pengaturan</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div>
+                                <button class="btn btn-success" id="saveAllSettings">
+                                    <i class="bi bi-check-circle me-2"></i>Simpan Semua
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Navigation -->
+                <div class="row">
+                    <div class="col-lg-3 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="card-title mb-0">Kategori Pengaturan</h6>
+                            </div>
+                            <div class="list-group list-group-flush">
+                                <a href="#general" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+                                    <i class="bi bi-gear me-2"></i>Umum
+                                </a>
+                                <a href="#library" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-building me-2"></i>Perpustakaan
+                                </a>
+                                <a href="#loan-rules" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-journal-text me-2"></i>Aturan Peminjaman
+                                </a>
+                                <a href="#notifications" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-bell me-2"></i>Notifikasi
+                                </a>
+                                <a href="#security" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-shield-lock me-2"></i>Keamanan
+                                </a>
+                                <a href="#backup" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-cloud-arrow-up me-2"></i>Backup
+                                </a>
+                                <a href="#integrations" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                                    <i class="bi bi-diagram-3 me-2"></i>Integrasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-9">
+                        <div class="tab-content">
+                            <!-- General Settings -->
+                            <div class="tab-pane fade show active" id="general">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Pengaturan Umum</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="siteName" class="form-label">Nama Sistem</label>
+                                                    <input type="text" class="form-control" id="siteName" value="Digital Library Management">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="siteDescription" class="form-label">Deskripsi</label>
+                                                    <input type="text" class="form-control" id="siteDescription" value="Sistem Manajemen Perpustakaan Digital">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="language" class="form-label">Bahasa Default</label>
+                                                    <select class="form-select" id="language">
+                                                        <option value="id" selected>Bahasa Indonesia</option>
+                                                        <option value="en">English</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="timezone" class="form-label">Zona Waktu</label>
+                                                    <select class="form-select" id="timezone">
+                                                        <option value="Asia/Jakarta" selected>Asia/Jakarta (WIB)</option>
+                                                        <option value="Asia/Makassar">Asia/Makassar (WITA)</option>
+                                                        <option value="Asia/Jayapura">Asia/Jayapura (WIT)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="dateFormat" class="form-label">Format Tanggal</label>
+                                                    <select class="form-select" id="dateFormat">
+                                                        <option value="dd/mm/yyyy" selected>DD/MM/YYYY</option>
+                                                        <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                                                        <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="currency" class="form-label">Mata Uang</label>
+                                                    <select class="form-select" id="currency">
+                                                        <option value="IDR" selected>Rupiah (IDR)</option>
+                                                        <option value="USD">US Dollar (USD)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="maintenanceMode">
+                                                    <label class="form-check-label" for="maintenanceMode">
+                                                        Mode Maintenance
+                                                    </label>
+                                                    <div class="form-text">Aktifkan untuk menonaktifkan akses sementara</div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Library Settings -->
+                            <div class="tab-pane fade" id="library">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Pengaturan Perpustakaan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="libraryName" class="form-label">Nama Perpustakaan</label>
+                                                    <input type="text" class="form-control" id="libraryName" value="Perpustakaan Universitas">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="libraryCode" class="form-label">Kode Perpustakaan</label>
+                                                    <input type="text" class="form-control" id="libraryCode" value="LIB001">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="libraryAddress" class="form-label">Alamat</label>
+                                                <textarea class="form-control" id="libraryAddress" rows="3">Jl. Raya Universitas No. 123, Jakarta 12345</textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="libraryPhone" class="form-label">Telepon</label>
+                                                    <input type="tel" class="form-control" id="libraryPhone" value="+62 21 1234567">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="libraryEmail" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="libraryEmail" value="info@library.ac.id">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="operatingHours" class="form-label">Jam Operasional</label>
+                                                    <input type="text" class="form-control" id="operatingHours" value="Senin - Jumat: 08:00 - 20:00">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="maxCapacity" class="form-label">Kapasitas Maksimal</label>
+                                                    <input type="number" class="form-control" id="maxCapacity" value="500">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Loan Rules Settings -->
+                            <div class="tab-pane fade" id="loan-rules">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Aturan Peminjaman</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="maxBooksStudent" class="form-label">Maks Buku - Mahasiswa</label>
+                                                    <input type="number" class="form-control" id="maxBooksStudent" value="3">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="maxBooksFaculty" class="form-label">Maks Buku - Dosen</label>
+                                                    <input type="number" class="form-control" id="maxBooksFaculty" value="5">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="maxBooksStaff" class="form-label">Maks Buku - Staff</label>
+                                                    <input type="number" class="form-control" id="maxBooksStaff" value="3">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="loanPeriodStudent" class="form-label">Periode Pinjam - Mahasiswa (hari)</label>
+                                                    <input type="number" class="form-control" id="loanPeriodStudent" value="14">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="loanPeriodFaculty" class="form-label">Periode Pinjam - Dosen (hari)</label>
+                                                    <input type="number" class="form-control" id="loanPeriodFaculty" value="30">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="loanPeriodStaff" class="form-label">Periode Pinjam - Staff (hari)</label>
+                                                    <input type="number" class="form-control" id="loanPeriodStaff" value="21">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="maxRenewal" class="form-label">Maks Perpanjangan</label>
+                                                    <input type="number" class="form-control" id="maxRenewal" value="2">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="finePerDay" class="form-label">Denda per Hari (Rp)</label>
+                                                    <input type="number" class="form-control" id="finePerDay" value="1000">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="gracePeriod" class="form-label">Masa Tenggang (hari)</label>
+                                                    <input type="number" class="form-control" id="gracePeriod" value="3">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="maxFine" class="form-label">Denda Maksimal (Rp)</label>
+                                                    <input type="number" class="form-control" id="maxFine" value="50000">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="autoRenewal" checked>
+                                                    <label class="form-check-label" for="autoRenewal">
+                                                        Perpanjangan Otomatis
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notifications Settings -->
+                            <div class="tab-pane fade" id="notifications">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Pengaturan Notifikasi</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <h6 class="mb-3">Email Notifications</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="emailDueReminder" checked>
+                                                        <label class="form-check-label" for="emailDueReminder">
+                                                            Reminder Jatuh Tempo
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="emailOverdue" checked>
+                                                        <label class="form-check-label" for="emailOverdue">
+                                                            Notifikasi Keterlambatan
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="emailReservation">
+                                                        <label class="form-check-label" for="emailReservation">
+                                                            Konfirmasi Reservasi
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="emailNewBooks" checked>
+                                                        <label class="form-check-label" for="emailNewBooks">
+                                                            Buku Baru Tersedia
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">SMS Notifications</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="smsDueReminder">
+                                                        <label class="form-check-label" for="smsDueReminder">
+                                                            SMS Reminder Jatuh Tempo
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="smsOverdue">
+                                                        <label class="form-check-label" for="smsOverdue">
+                                                            SMS Keterlambatan
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">Timing Settings</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="reminderDays" class="form-label">Reminder Sebelum Jatuh Tempo (hari)</label>
+                                                    <input type="number" class="form-control" id="reminderDays" value="3">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="overdueFrequency" class="form-label">Frekuensi Notifikasi Terlambat (hari)</label>
+                                                    <input type="number" class="form-control" id="overdueFrequency" value="7">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Settings -->
+                            <div class="tab-pane fade" id="security">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Pengaturan Keamanan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <h6 class="mb-3">Password Policy</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="minPasswordLength" class="form-label">Panjang Password Minimum</label>
+                                                    <input type="number" class="form-control" id="minPasswordLength" value="8">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="passwordExpiry" class="form-label">Password Kedaluwarsa (hari)</label>
+                                                    <input type="number" class="form-control" id="passwordExpiry" value="90">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="requireUppercase" checked>
+                                                        <label class="form-check-label" for="requireUppercase">
+                                                            Wajib Huruf Besar
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="requireNumbers" checked>
+                                                        <label class="form-check-label" for="requireNumbers">
+                                                            Wajib Angka
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="requireSpecialChars">
+                                                        <label class="form-check-label" for="requireSpecialChars">
+                                                            Wajib Karakter Khusus
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="preventReuse" checked>
+                                                        <label class="form-check-label" for="preventReuse">
+                                                            Cegah Penggunaan Ulang
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">Session Settings</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="sessionTimeout" class="form-label">Session Timeout (menit)</label>
+                                                    <input type="number" class="form-control" id="sessionTimeout" value="30">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="maxLoginAttempts" class="form-label">Maksimal Percobaan Login</label>
+                                                    <input type="number" class="form-control" id="maxLoginAttempts" value="5">
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">Two-Factor Authentication</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="enable2FA">
+                                                        <label class="form-check-label" for="enable2FA">
+                                                            Aktifkan 2FA untuk Admin
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="force2FA">
+                                                        <label class="form-check-label" for="force2FA">
+                                                            Wajibkan 2FA untuk Semua User
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Backup Settings -->
+                            <div class="tab-pane fade" id="backup">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Pengaturan Backup</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <h6 class="mb-3">Automatic Backup</h6>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="enableAutoBackup" checked>
+                                                        <label class="form-check-label" for="enableAutoBackup">
+                                                            Aktifkan Backup Otomatis
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="backupFrequency" class="form-label">Frekuensi Backup</label>
+                                                    <select class="form-select" id="backupFrequency">
+                                                        <option value="daily" selected>Harian</option>
+                                                        <option value="weekly">Mingguan</option>
+                                                        <option value="monthly">Bulanan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="backupTime" class="form-label">Waktu Backup</label>
+                                                    <input type="time" class="form-control" id="backupTime" value="02:00">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="retentionPeriod" class="form-label">Periode Penyimpanan (hari)</label>
+                                                    <input type="number" class="form-control" id="retentionPeriod" value="30">
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">Backup Location</h6>
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="backupLocation" class="form-label">Lokasi Backup</label>
+                                                    <select class="form-select" id="backupLocation">
+                                                        <option value="local" selected>Local Storage</option>
+                                                        <option value="cloud">Cloud Storage</option>
+                                                        <option value="ftp">FTP Server</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr class="my-4">
+                                            
+                                            <h6 class="mb-3">Manual Backup</h6>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="d-flex gap-2">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="bi bi-cloud-arrow-down me-2"></i>Backup Database
+                                                        </button>
+                                                        <button type="button" class="btn btn-success">
+                                                            <i class="bi bi-folder-symlink me-2"></i>Backup Files
+                                                        </button>
+                                                        <button type="button" class="btn btn-warning">
+                                                            <i class="bi bi-archive me-2"></i>Full Backup
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-text">Terakhir backup: 15 Januari 2024, 02:00 WIB</div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Integrations Settings -->
+                            <div class="tab-pane fade" id="integrations">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Integrasi Sistem</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- Email Service -->
+                                            <div class="col-md-6 mb-4">
+                                                <div class="border rounded p-3">
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <i class="bi bi-envelope text-primary me-2" style="font-size: 1.5rem;"></i>
+                                                        <div>
+                                                            <h6 class="mb-0">Email Service</h6>
+                                                            <small class="text-muted">SMTP Configuration</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">SMTP Server</label>
+                                                        <input type="text" class="form-control" value="smtp.gmail.com">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Port</label>
+                                                        <input type="number" class="form-control" value="587">
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" checked>
+                                                        <label class="form-check-label">
+                                                            Aktif
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- SMS Service -->
+                                            <div class="col-md-6 mb-4">
+                                                <div class="border rounded p-3">
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <i class="bi bi-phone text-success me-2" style="font-size: 1.5rem;"></i>
+                                                        <div>
+                                                            <h6 class="mb-0">SMS Service</h6>
+                                                            <small class="text-muted">SMS Gateway</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Provider</label>
+                                                        <select class="form-select">
+                                                            <option>Twilio</option>
+                                                            <option>Nexmo</option>
+                                                            <option>Local Provider</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">API Key</label>
+                                                        <input type="password" class="form-control" value="••••••••••••">
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <label class="form-check-label">
+                                                            Aktif
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Barcode Scanner -->
+                                            <div class="col-md-6 mb-4">
+                                                <div class="border rounded p-3">
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <i class="bi bi-qr-code-scan text-info me-2" style="font-size: 1.5rem;"></i>
+                                                        <div>
+                                                            <h6 class="mb-0">Barcode Scanner</h6>
+                                                            <small class="text-muted">Hardware Integration</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Scanner Type</label>
+                                                        <select class="form-select">
+                                                            <option>USB Scanner</option>
+                                                            <option>Wireless Scanner</option>
+                                                            <option>Camera Scanner</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Port/Device</label>
+                                                        <input type="text" class="form-control" value="COM3">
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" checked>
+                                                        <label class="form-check-label">
+                                                            Aktif
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- RFID Reader -->
+                                            <div class="col-md-6 mb-4">
+                                                <div class="border rounded p-3">
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <i class="bi bi-credit-card-2-front text-warning me-2" style="font-size: 1.5rem;"></i>
+                                                        <div>
+                                                            <h6 class="mb-0">RFID Reader</h6>
+                                                            <small class="text-muted">Contactless Card Reader</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Reader Model</label>
+                                                        <select class="form-select">
+                                                            <option>ACR122U</option>
+                                                            <option>MFRC522</option>
+                                                            <option>PN532</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label class="form-label">Connection</label>
+                                                        <input type="text" class="form-control" value="USB">
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <label class="form-check-label">
+                                                            Aktif
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+    
+    <!-- Settings JavaScript -->
+    <script>
+        // Save settings functionality
+        document.getElementById('saveAllSettings').addEventListener('click', function() {
+            // Simulate saving
+            const btn = this;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="bi bi-arrow-clockwise me-2"></i>Menyimpan...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Tersimpan!';
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+            
+            // Show notification
+            if (window.dashboard) {
+                window.dashboard.showNotification('Pengaturan berhasil disimpan', 'success');
+            }
+        });
+        
+        // Test buttons for integrations
+        document.querySelectorAll('.btn-outline-primary, .btn-outline-success, .btn-outline-warning').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent.includes('Test') || this.textContent.includes('Backup')) {
+                    const action = this.textContent.trim();
+                    if (window.dashboard) {
+                        window.dashboard.showNotification(`${action} berhasil dijalankan`, 'info');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
