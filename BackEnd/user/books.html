@@ -12,6 +12,9 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -168,150 +171,270 @@
                     </div>
                 </div>
 
-                <!-- Books Grid -->
-                <div class="row" id="booksContainer">
-                    <!-- Book Card 1 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="card h-100 book-card">
-                            <div class="position-relative">
-                                <img src="https://via.placeholder.com/300x400/007bff/ffffff?text=Clean+Code" alt="Clean Code" class="card-img-top">
-                                <span class="badge bg-success position-absolute top-0 end-0 m-2">Tersedia</span>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-title">Clean Code</h6>
-                                <p class="text-muted small mb-2">Robert C. Martin</p>
-                                <p class="card-text flex-grow-1">
-                                    <small class="text-muted">
-                                        <i class="bi bi-tag me-1"></i>Teknologi<br>
-                                        <i class="bi bi-calendar me-1"></i>2008<br>
-                                        <i class="bi bi-geo-alt me-1"></i>Rak A-1
-                                    </small>
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-grow-1" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="showBookDetails('BK001')">
-                                            <i class="bi bi-eye me-1"></i>Detail
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Book Card 2 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="card h-100 book-card">
-                            <div class="position-relative">
-                                <img src="https://via.placeholder.com/300x400/28a745/ffffff?text=JavaScript" alt="JavaScript Guide" class="card-img-top">
-                                <span class="badge bg-warning position-absolute top-0 end-0 m-2">Stok Terbatas</span>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-title">JavaScript: The Good Parts</h6>
-                                <p class="text-muted small mb-2">Douglas Crockford</p>
-                                <p class="card-text flex-grow-1">
-                                    <small class="text-muted">
-                                        <i class="bi bi-tag me-1"></i>Teknologi<br>
-                                        <i class="bi bi-calendar me-1"></i>2008<br>
-                                        <i class="bi bi-geo-alt me-1"></i>Rak A-2
-                                    </small>
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-grow-1" data-bs-toggle="modal" data-bs-target="#bookModal">
-                                            <i class="bi bi-eye me-1"></i>Detail
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Book Card 3 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="card h-100 book-card">
-                            <div class="position-relative">
-                                <img src="https://via.placeholder.com/300x400/dc3545/ffffff?text=Design+Patterns" alt="Design Patterns" class="card-img-top">
-                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Dipinjam</span>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-title">Design Patterns</h6>
-                                <p class="text-muted small mb-2">Gang of Four</p>
-                                <p class="card-text flex-grow-1">
-                                    <small class="text-muted">
-                                        <i class="bi bi-tag me-1"></i>Teknologi<br>
-                                        <i class="bi bi-calendar me-1"></i>1994<br>
-                                        <i class="bi bi-geo-alt me-1"></i>Rak B-1
-                                    </small>
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-grow-1" data-bs-toggle="modal" data-bs-target="#bookModal">
-                                            <i class="bi bi-eye me-1"></i>Detail
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Book Card 4 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="card h-100 book-card">
-                            <div class="position-relative">
-                                <img src="https://via.placeholder.com/300x400/6366f1/ffffff?text=Pragmatic" alt="The Pragmatic Programmer" class="card-img-top">
-                                <span class="badge bg-success position-absolute top-0 end-0 m-2">Tersedia</span>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-title">The Pragmatic Programmer</h6>
-                                <p class="text-muted small mb-2">David Thomas</p>
-                                <p class="card-text flex-grow-1">
-                                    <small class="text-muted">
-                                        <i class="bi bi-tag me-1"></i>Teknologi<br>
-                                        <i class="bi bi-calendar me-1"></i>2019<br>
-                                        <i class="bi bi-geo-alt me-1"></i>Rak A-3
-                                    </small>
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-grow-1" data-bs-toggle="modal" data-bs-target="#bookModal">
-                                            <i class="bi bi-eye me-1"></i>Detail
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Repeat similar cards for more books -->
-                </div>
-
-                <!-- Pagination -->
+                <!-- Books Table -->
                 <div class="row">
                     <div class="col-12">
-                        <nav aria-label="Books pagination">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="text-muted">
-                                    Menampilkan 1 sampai 12 dari 5,634 buku
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Daftar Buku</h5>
+                                    <span class="text-muted">Total: 5,634 buku</span>
                                 </div>
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Selanjutnya</a>
-                                    </li>
-                                </ul>
                             </div>
-                        </nav>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="booksTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Cover</th>
+                                                <th scope="col">ID Buku</th>
+                                                <th scope="col">Judul</th>
+                                                <th scope="col">Pengarang</th>
+                                                <th scope="col">Kategori</th>
+                                                <th scope="col">Tahun</th>
+                                                <th scope="col">Lokasi</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/007bff/ffffff?text=CC" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK001</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Clean Code</div>
+                                                        <small class="text-muted">A Handbook of Agile Software Craftsmanship</small>
+                                                    </div>
+                                                </td>
+                                                <td>Robert C. Martin</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>2008</td>
+                                                <td>Rak A-1</td>
+                                                <td><span class="badge bg-success">Tersedia (5)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="showBookDetails('BK001')">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK001')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/28a745/ffffff?text=JS" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK002</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">JavaScript: The Good Parts</div>
+                                                        <small class="text-muted">The Definitive Guide</small>
+                                                    </div>
+                                                </td>
+                                                <td>Douglas Crockford</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>2008</td>
+                                                <td>Rak A-2</td>
+                                                <td><span class="badge bg-warning">Stok Terbatas (2)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK002')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/dc3545/ffffff?text=DP" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK003</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Design Patterns</div>
+                                                        <small class="text-muted">Elements of Reusable Object-Oriented Software</small>
+                                                    </div>
+                                                </td>
+                                                <td>Gang of Four</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>1994</td>
+                                                <td>Rak B-1</td>
+                                                <td><span class="badge bg-danger">Tidak Tersedia (0)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-secondary" disabled>
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/6366f1/ffffff?text=PP" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK004</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">The Pragmatic Programmer</div>
+                                                        <small class="text-muted">Your Journey to Mastery</small>
+                                                    </div>
+                                                </td>
+                                                <td>David Thomas, Andrew Hunt</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>2019</td>
+                                                <td>Rak A-3</td>
+                                                <td><span class="badge bg-success">Tersedia (3)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK004')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/f59e0b/ffffff?text=AI" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK005</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Artificial Intelligence</div>
+                                                        <small class="text-muted">A Modern Approach</small>
+                                                    </div>
+                                                </td>
+                                                <td>Stuart Russell, Peter Norvig</td>
+                                                <td><span class="badge bg-purple">Sains</span></td>
+                                                <td>2021</td>
+                                                <td>Rak C-1</td>
+                                                <td><span class="badge bg-success">Tersedia (4)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK005')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/ef4444/ffffff?text=SE" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK006</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Software Engineering</div>
+                                                        <small class="text-muted">A Practitioner's Approach</small>
+                                                    </div>
+                                                </td>
+                                                <td>Roger S. Pressman</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>2020</td>
+                                                <td>Rak A-4</td>
+                                                <td><span class="badge bg-success">Tersedia (6)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK006')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/10b981/ffffff?text=HI" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK007</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Sejarah Indonesia Modern</div>
+                                                        <small class="text-muted">Dari Era Kolonial hingga Kemerdekaan</small>
+                                                    </div>
+                                                </td>
+                                                <td>M.C. Ricklefs</td>
+                                                <td><span class="badge bg-success">Sejarah</span></td>
+                                                <td>2005</td>
+                                                <td>Rak D-1</td>
+                                                <td><span class="badge bg-warning">Stok Terbatas (1)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK007')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://via.placeholder.com/40x50/8b5cf6/ffffff?text=PY" alt="Cover" class="rounded" width="40" height="50">
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-primary">BK008</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Python Programming</div>
+                                                        <small class="text-muted">An Introduction to Computer Science</small>
+                                                    </div>
+                                                </td>
+                                                <td>John Zelle</td>
+                                                <td><span class="badge bg-info">Teknologi</span></td>
+                                                <td>2017</td>
+                                                <td>Rak A-5</td>
+                                                <td><span class="badge bg-success">Tersedia (7)</span></td>
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal">
+                                                            <i class="bi bi-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-success" onclick="borrowBook('BK008')">
+                                                            <i class="bi bi-bookmark-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -385,7 +508,59 @@
     <!-- Bootstrap 5 JS Bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    
     <!-- Custom JavaScript -->
     <script src="../assets/js/script.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#booksTable').DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "paging": true,
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Semua"]],
+                "language": {
+                    "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                    "zeroRecords": "Data tidak ditemukan",
+                    "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Tidak ada data tersedia",
+                    "infoFiltered": "(difilter dari _MAX_ total data)",
+                    "search": "Cari buku:",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Berikutnya", 
+                        "previous": "Sebelumnya"
+                    },
+                    "loadingRecords": "Memuat...",
+                    "processing": "Sedang memproses..."
+                },
+                "columnDefs": [
+                    { "orderable": false, "targets": [0, 8] } // Disable sorting for cover and action columns
+                ]
+            });
+        });
+
+        function showBookDetails(bookId) {
+            // Function to show book details in modal
+            console.log('Showing details for book:', bookId);
+        }
+
+        function borrowBook(bookId) {
+            // Function to handle book borrowing
+            if (confirm('Apakah Anda yakin ingin meminjam buku ini?')) {
+                alert('Permintaan peminjaman untuk buku ' + bookId + ' telah disubmit. Silakan kunjungi petugas perpustakaan untuk proses lebih lanjut.');
+            }
+        }
+    </script>
 </body>
 </html>
