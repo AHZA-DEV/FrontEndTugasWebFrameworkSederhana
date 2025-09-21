@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pencarian - Perpustakaan Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 (Latest) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+  <!-- Modern Navigation -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="hidden w-8 h-8 rounded-lg flex items-center justify-center">
+            <img src="assets/img/logo.png" alt="Logo" class="w-8 h-8">
+          </div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Perpustakaan Digital</h1>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="index.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Beranda</a>
+          <a href="books.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Buku</a>
+          <a href="members.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Anggota</a>
+          <a href="check-member.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Cek Anggota</a>
+          <a href="search.html" class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Pencarian</a>
+          <a href="login.html" class="ml-4 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-sm">Login</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" onclick="toggleMobileMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="space-y-2">
+          <a href="index.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Beranda</a>
+          <a href="books.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Buku</a>
+          <a href="members.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Anggota</a>
+          <a href="check-member.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Cek Anggota</a>
+          <a href="search.html" class="block px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Pencarian</a>
+          <a href="login.html" class="block px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg text-center">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl shadow-lg mb-6">
+        <i class="fa fa-search text-2xl"></i>
+      </div>
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Pencarian Cerdas</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Temukan buku yang Anda cari dengan mudah menggunakan sistem pencarian yang powerful dan intuitif</p>
+    </div>
+      
+    <!-- Search Form -->
+    <div class="mb-12">
+      <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8">
+        <div class="flex items-center mb-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+            <i class="fa fa-search text-2xl"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900">Pencarian Buku</h2>
+            <p class="text-slate-600">Masukkan kata kunci untuk mencari buku dalam koleksi</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Kata Kunci</label>
+            <input type="text" id="searchKeyword" placeholder="Masukkan judul, pengarang, atau kata kunci..." class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Cari Berdasarkan</label>
+            <select id="searchField" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+              <option value="all">Semua Field</option>
+              <option value="id">ID Buku</option>
+              <option value="title">Judul Buku</option>
+              <option value="author">Pengarang</option>
+              <option value="category">Kategori</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button type="button" onclick="performSearch()" class="bg-blue-800 text-white px-8 py-3 rounded-xl font-semibold hover:from-violet-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <span class="flex items-center justify-center">
+              <i class="fa fa-search mr-2"></i>
+              Cari Buku
+            </span>
+          </button>
+          <button type="button" onclick="clearSearch()" class="bg-slate-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-all duration-200">
+            <span class="flex items-center justify-center">
+              <i class="fa fa-eraser mr-2"></i>
+              Bersihkan
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+      <!-- Hasil Pencarian Buku -->
+      <div id="bookResults" class="bg-white rounded-lg shadow-md mb-8" style="display: none;">
+        <div class="p-6 border-b">
+          <h2 class="text-xl font-semibold text-blue-600">Hasil Pencarian Buku</h2>
+          <p id="resultsCount" class="text-sm text-gray-600 mt-1"></p>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pengarang</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ISBN</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tahun</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
+              </tr>
+            </thead>
+            <tbody id="bookTableBody" class="bg-white divide-y divide-gray-200">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div id="noResults" class="bg-gray-50 border border-gray-200 p-8 rounded-lg text-center" style="display: none;">
+        <div class="text-gray-400 mb-4">
+          <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-2">Tidak Ada Hasil</h3>
+        <p class="text-gray-500">Pencarian tidak menemukan buku yang sesuai dengan kriteria.</p>
+      </div>
+
+      <!-- Info Section -->
+      <div id="infoSection" class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+        <h3 class="text-lg font-semibold text-blue-800 mb-2">Tips Pencarian:</h3>
+        <ul class="text-blue-700 space-y-1">
+          <li>• Pilih "Semua Field" untuk mencari di semua informasi buku</li>
+          <li>• Gunakan "ID Buku" untuk mencari berdasarkan kode buku (contoh: B001)</li>
+          <li>• Pilih "Judul Buku" untuk mencari berdasarkan nama buku</li>
+          <li>• Gunakan "Pengarang" untuk mencari berdasarkan nama penulis</li>
+          <li>• Pilih "Kategori" untuk mencari berdasarkan jenis buku</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    
+    // Sample data buku - dalam implementasi nyata akan dari database
+    const sampleBooks = [
+      { 
+        id: 'B001', 
+        title: 'Laskar Pelangi', 
+        author: 'Andrea Hirata', 
+        category: 'Fiksi',
+        isbn: '978-979-062-021-9',
+        year: 2005,
+        stock: 5 
+      },
+      { 
+        id: 'B002', 
+        title: 'Bumi Manusia', 
+        author: 'Pramoedya Ananta Toer', 
+        category: 'Sejarah',
+        isbn: '978-979-062-022-6',
+        year: 1980,
+        stock: 3 
+      },
+      { 
+        id: 'B003', 
+        title: 'Negeri 5 Menara', 
+        author: 'Ahmad Fuadi', 
+        category: 'Fiksi',
+        isbn: '978-979-062-023-3',
+        year: 2009,
+        stock: 7 
+      },
+      { 
+        id: 'B004', 
+        title: 'Habis Gelap Terbitlah Terang', 
+        author: 'R.A. Kartini', 
+        category: 'Biografi',
+        isbn: '978-979-062-024-0',
+        year: 1911,
+        stock: 4 
+      },
+      { 
+        id: 'B005', 
+        title: 'Ronggeng Dukuh Paruk', 
+        author: 'Ahmad Tohari', 
+        category: 'Fiksi',
+        isbn: '978-979-062-025-7',
+        year: 1982,
+        stock: 2 
+      },
+      { 
+        id: 'B006', 
+        title: 'Tenggelamnya Kapal Van Der Wijck', 
+        author: 'Hamka', 
+        category: 'Fiksi',
+        isbn: '978-979-062-026-4',
+        year: 1938,
+        stock: 6 
+      },
+      { 
+        id: 'B007', 
+        title: 'Algoritma dan Pemrograman', 
+        author: 'Dr. Munir', 
+        category: 'Teknologi',
+        isbn: '978-979-062-027-1',
+        year: 2018,
+        stock: 8 
+      },
+      { 
+        id: 'B008', 
+        title: 'Sejarah Indonesia Modern', 
+        author: 'M.C. Ricklefs', 
+        category: 'Sejarah',
+        isbn: '978-979-062-028-8',
+        year: 2005,
+        stock: 3 
+      }
+    ];
+
+    function performSearch() {
+      const keyword = document.getElementById('searchKeyword').value.toLowerCase().trim();
+      const searchField = document.getElementById('searchField').value;
+      
+      if (!keyword) {
+        alert('Masukkan kata kunci pencarian');
+        return;
+      }
+
+      let foundBooks = [];
+
+      if (searchField === 'all') {
+        foundBooks = sampleBooks.filter(book => 
+          book.id.toLowerCase().includes(keyword) ||
+          book.title.toLowerCase().includes(keyword) || 
+          book.author.toLowerCase().includes(keyword) ||
+          book.category.toLowerCase().includes(keyword) ||
+          book.isbn.toLowerCase().includes(keyword) ||
+          book.year.toString().includes(keyword)
+        );
+      } else if (searchField === 'id') {
+        foundBooks = sampleBooks.filter(book => 
+          book.id.toLowerCase().includes(keyword)
+        );
+      } else if (searchField === 'title') {
+        foundBooks = sampleBooks.filter(book => 
+          book.title.toLowerCase().includes(keyword)
+        );
+      } else if (searchField === 'author') {
+        foundBooks = sampleBooks.filter(book => 
+          book.author.toLowerCase().includes(keyword)
+        );
+      } else if (searchField === 'category') {
+        foundBooks = sampleBooks.filter(book => 
+          book.category.toLowerCase().includes(keyword)
+        );
+      }
+
+      displayResults(foundBooks, keyword, searchField);
+    }
+
+    function displayResults(books, keyword, searchField) {
+      const bookResults = document.getElementById('bookResults');
+      const noResults = document.getElementById('noResults');
+      const infoSection = document.getElementById('infoSection');
+      const resultsCount = document.getElementById('resultsCount');
+
+      if (books.length === 0) {
+        bookResults.style.display = 'none';
+        noResults.style.display = 'block';
+        infoSection.style.display = 'none';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      infoSection.style.display = 'none';
+      bookResults.style.display = 'block';
+
+      // Update results count
+      const fieldText = searchField === 'all' ? 'semua field' : 
+                       searchField === 'id' ? 'ID buku' :
+                       searchField === 'title' ? 'judul buku' :
+                       searchField === 'author' ? 'pengarang' :
+                       searchField === 'category' ? 'kategori' : '';
+      
+      resultsCount.textContent = `Ditemukan ${books.length} buku dengan kata kunci "${keyword}" pada ${fieldText}`;
+
+      const tbody = document.getElementById('bookTableBody');
+      tbody.innerHTML = books.map(book => `
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">${book.id}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${book.title}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${book.author}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+            <span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">${book.category}</span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${book.isbn}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${book.year}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+            <span class="px-2 py-1 text-xs font-medium ${book.stock > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} rounded-full">
+              ${book.stock} tersedia
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function clearSearch() {
+      document.getElementById('searchKeyword').value = '';
+      document.getElementById('searchField').value = 'all';
+      document.getElementById('bookResults').style.display = 'none';
+      document.getElementById('noResults').style.display = 'none';
+      document.getElementById('infoSection').style.display = 'block';
+    }
+
+    // Allow search on Enter key press
+    document.getElementById('searchKeyword').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - Perpustakaan Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 (Latest) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-50 min-h-screen flex items-center justify-center p-4">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-emerald-400 to-blue-400 rounded-full opacity-20 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-full opacity-20 blur-3xl"></div>
+  </div>
+
+  <div class="relative w-full max-w-md">
+    <!-- Logo and Brand -->
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl shadow-lg mb-4">
+        <i class="fa-solid fa-book text-3xl"></i>
+      </div>
+      <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent mb-2">Perpustakaan Digital</h1>
+      <p class="text-slate-600">Buat akun baru Anda</p>
+    </div>
+
+    <!-- Register Form -->
+    <div class="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-2">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Bergabung dengan Kami</h2>
+        <p class="text-slate-600">Daftar untuk mengakses semua fitur</p>
+      </div>
+      
+      <form class="space-y-5">
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700">Nama Lengkap</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <input type="text" required placeholder="Masukkan nama lengkap" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+          </div>
+        </div>
+        
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700">Email</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <input type="email" required placeholder="contoh@email.com" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+          </div>
+        </div>
+        
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700">Username</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+              </svg>
+            </div>
+            <input type="text" required placeholder="Pilih username unik" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+          </div>
+        </div>
+        
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700">Password</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <input type="password" required placeholder="Minimum 8 karakter" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="flex items-center h-5">
+            <input type="checkbox" required class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-slate-300 rounded">
+          </div>
+          <div class="ml-3 text-sm">
+            <label class="text-slate-600">
+              Saya setuju dengan <a href="#" class="text-emerald-600 hover:text-emerald-800 font-medium">Syarat & Ketentuan</a> dan <a href="#" class="text-emerald-600 hover:text-emerald-800 font-medium">Kebijakan Privasi</a>
+            </label>
+          </div>
+        </div>
+        
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-emerald-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          <span class="flex items-center justify-center">
+            <i class="fa fa-user-plus mr-2"></i>
+            Daftar Sekarang
+          </span>
+        </button>
+      </form>
+      
+      <div class="mt-8 pt-6 border-t border-slate-200">
+        <div class="text-center space-y-4">
+          <p class="text-slate-600">
+            Sudah punya akun? 
+            <a href="login.html" class="text-emerald-600 hover:text-emerald-800 font-semibold transition-colors duration-200">Login sekarang</a>
+          </p>
+          <a href="index.html" class="inline-flex items-center text-slate-500 hover:text-slate-700 transition-colors duration-200">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

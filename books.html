@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manajemen Buku - Perpustakaan Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 (Latest) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+  <!-- Modern Navigation -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="hidden w-8 h-8 rounded-lg flex items-center justify-center">
+            <img src="assets/img/logo.png" alt="Logo" class="w-8 h-8">
+          </div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Perpustakaan Digital</h1>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="index.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Beranda</a>
+          <a href="books.html" class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Buku</a>
+          <a href="members.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Anggota</a>
+          <a href="check-member.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Cek Anggota</a>
+          <a href="search.html" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Pencarian</a>
+          <a href="login.html" class="ml-4 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-sm">Login</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" onclick="toggleMobileMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="space-y-2">
+          <a href="index.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Beranda</a>
+          <a href="books.html" class="block px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Buku</a>
+          <a href="members.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Anggota</a>
+          <a href="check-member.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Cek Anggota</a>
+          <a href="search.html" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">Pencarian</a>
+          <a href="login.html" class="block px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg text-center">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl shadow-lg mb-6">
+        <img src="assets/img/books.png" alt="Books Icon" class="w-8 h-8" />
+      </div>
+      <!-- <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl shadow-lg mb-6">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+      </div> -->
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Manajemen Buku</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Kelola koleksi buku perpustakaan dengan mudah. Tambahkan buku baru dan lihat daftar lengkap koleksi</p>
+    </div>
+      
+    <!-- Add Book Form -->
+    <div class="mb-12">
+      <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8">
+        <div class="flex items-center mb-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+            <i class="fa fa-book"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900">Tambah Buku Baru</h2>
+            <p class="text-slate-600">Isi informasi lengkap untuk menambahkan buku ke koleksi</p>
+          </div>
+        </div>
+        
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Judul Buku</label>
+            <input type="text" required placeholder="Masukkan judul buku" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Pengarang</label>
+            <input type="text" required placeholder="Nama pengarang" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">ISBN</label>
+            <input type="text" required placeholder="Nomor ISBN" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Tahun Terbit</label>
+            <input type="number" required placeholder="2025" min="1900" max="2030" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Kategori</label>
+            <select class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+              <option value="">Pilih kategori</option>
+              <option value="fiksi">Fiksi</option>
+              <option value="non-fiksi">Non-Fiksi</option>
+              <option value="pendidikan">Pendidikan</option>
+              <option value="teknologi">Teknologi</option>
+              <option value="sejarah">Sejarah</option>
+              <option value="sains">Sains</option>
+              <option value="biografi">Biografi</option>
+            </select>
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-semibold text-slate-700">Jumlah Stok</label>
+            <input type="number" required placeholder="Jumlah eksemplar" min="1" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm transition-all duration-200">
+          </div>
+          
+          <div class="md:col-span-2 pt-4">
+            <button type="submit" class="bg-blue-800 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <span class="flex items-center justify-center">
+                <i class="fa fa-plus mr-2"></i>
+                Tambah Buku
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Books List -->
+    <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+      <!-- Table Header -->
+      <div class="bg-gradient-to-r from-slate-50 to-blue-50 p-6 border-b border-slate-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900 mb-2">Daftar Koleksi Buku</h2>
+            <p class="text-slate-600">Kelola dan lihat semua buku dalam perpustakaan</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="text-sm text-slate-600">
+              Search akan tersedia setelah DataTables diinisialisasi
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full datatable" id="booksTable">
+          <thead class="bg-gradient-to-r from-slate-50 to-blue-50">
+            <tr>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">ID Buku</th>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Judul & Pengarang</th>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Kategori</th>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Stok</th>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Status</th>
+              <th class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white/50 backdrop-blur-sm divide-y divide-slate-200">
+            <tr class="table-row hover:bg-blue-50/50 transition-colors duration-200">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-sm font-medium text-slate-900">B001</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-col">
+                  <span class="text-sm font-semibold text-slate-900">Laskar Pelangi</span>
+                  <span class="text-sm text-slate-500">Andrea Hirata</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                  Fiksi
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-lg font-bold text-slate-900">5</span>
+                  <span class="text-sm text-slate-500 ml-1">unit</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  Tersedia
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <div class="flex items-center space-x-2">
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                    Edit
+                  </button>
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    Hapus
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row hover:bg-blue-50/50 transition-colors duration-200">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-sm font-medium text-slate-900">B002</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-col">
+                  <span class="text-sm font-semibold text-slate-900">Bumi Manusia</span>
+                  <span class="text-sm text-slate-500">Pramoedya Ananta Toer</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                  Sejarah
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-lg font-bold text-slate-900">3</span>
+                  <span class="text-sm text-slate-500 ml-1">unit</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  Tersedia
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <div class="flex items-center space-x-2">
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                    Edit
+                  </button>
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    Hapus
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row hover:bg-blue-50/50 transition-colors duration-200">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-sm font-medium text-slate-900">B003</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-col">
+                  <span class="text-sm font-semibold text-slate-900">Negeri 5 Menara</span>
+                  <span class="text-sm text-slate-500">Ahmad Fuadi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  Pendidikan
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="text-lg font-bold text-slate-900">7</span>
+                  <span class="text-sm text-slate-500 ml-1">unit</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  Tersedia
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <div class="flex items-center space-x-2">
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                    Edit
+                  </button>
+                  <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-lg text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    Hapus
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+  <!-- DataTables JavaScript -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    
+    // Initialize DataTables
+    document.addEventListener('DOMContentLoaded', function() {
+      $('#booksTable').DataTable({
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "paging": true,
+        "pageLength": 10,
+        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Semua"]],
+        "language": {
+          "lengthMenu": "Tampilkan _MENU_ data per halaman",
+          "zeroRecords": "Data tidak ditemukan",
+          "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+          "infoEmpty": "Tidak ada data tersedia",
+          "infoFiltered": "(difilter dari _MAX_ total data)",
+          "search": "Cari:",
+          "paginate": {
+            "first": "Pertama",
+            "last": "Terakhir",
+            "next": "Berikutnya",
+            "previous": "Sebelumnya"
+          },
+          "loadingRecords": "Memuat...",
+          "processing": "Sedang memproses..."
+        }
+      });
+      
+      // Form submission
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Form validation
+          const inputs = form.querySelectorAll('input[required], select[required]');
+          let isValid = true;
+          
+          inputs.forEach(input => {
+            if (!input.value.trim()) {
+              isValid = false;
+              input.classList.add('border-red-500', 'ring-red-500');
+            } else {
+              input.classList.remove('border-red-500', 'ring-red-500');
+            }
+          });
+          
+          if (!isValid) {
+            alert('Mohon lengkapi semua field yang diperlukan');
+            return;
+          }
+          
+          // Simulate success
+          alert('Buku berhasil ditambahkan ke koleksi!');
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
