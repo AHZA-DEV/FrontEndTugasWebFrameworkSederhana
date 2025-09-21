@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Peminjaman - Admin Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-shield-check text-primary me-2"></i>
+                    <span class="fw-bold">Admin Panel</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="bi bi-house-door"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-users.html" class="menu-link">
+                            <i class="bi bi-people"></i>
+                            <span>Kelola Anggota</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-books.html" class="menu-link">
+                            <i class="bi bi-book"></i>
+                            <span>Kelola Buku</span>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="manage-loans.html" class="menu-link">
+                            <i class="bi bi-journal-arrow-up"></i>
+                            <span>Kelola Peminjaman</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-categories.html" class="menu-link">
+                            <i class="bi bi-tags"></i>
+                            <span>Kelola Kategori</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="reports.html" class="menu-link">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Laporan</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="settings.html" class="menu-link">
+                            <i class="bi bi-gear"></i>
+                            <span>Pengaturan</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Cari peminjaman...">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    7
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=A" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-2">Kelola Peminjaman</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Kelola Peminjaman</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addLoanModal">
+                                    <i class="bi bi-plus-circle me-2"></i>Tambah Peminjaman
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row mb-4">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-primary">
+                            <div class="card-body text-center">
+                                <i class="bi bi-journal-arrow-up text-primary" style="font-size: 2rem;"></i>
+                                <h4 class="mt-2 mb-1">432</h4>
+                                <p class="text-muted mb-0">Sedang Dipinjam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <i class="bi bi-arrow-return-left text-success" style="font-size: 2rem;"></i>
+                                <h4 class="mt-2 mb-1">1,256</h4>
+                                <p class="text-muted mb-0">Dikembalikan Bulan Ini</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-danger">
+                            <div class="card-body text-center">
+                                <i class="bi bi-exclamation-triangle text-danger" style="font-size: 2rem;"></i>
+                                <h4 class="mt-2 mb-1">23</h4>
+                                <p class="text-muted mb-0">Terlambat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-warning">
+                            <div class="card-body text-center">
+                                <i class="bi bi-clock text-warning" style="font-size: 2rem;"></i>
+                                <h4 class="mt-2 mb-1">78</h4>
+                                <p class="text-muted mb-0">Jatuh Tempo Hari Ini</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Actions -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <select class="form-select" id="statusFilter">
+                                                    <option value="">Semua Status</option>
+                                                    <option value="borrowed">Dipinjam</option>
+                                                    <option value="returned">Dikembalikan</option>
+                                                    <option value="overdue">Terlambat</option>
+                                                    <option value="extended">Diperpanjang</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="date" class="form-control" id="dateFromFilter">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="date" class="form-control" id="dateToFilter">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button class="btn btn-outline-secondary w-100">
+                                                    <i class="bi bi-funnel me-2"></i>Filter
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <div class="d-flex gap-2 justify-content-end">
+                                            <button class="btn btn-outline-warning">
+                                                <i class="bi bi-bell me-2"></i>Kirim Reminder
+                                            </button>
+                                            <button class="btn btn-outline-success">
+                                                <i class="bi bi-download me-2"></i>Export
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loans Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Daftar Peminjaman</h5>
+                                    <span class="text-muted">Total: 2,847 transaksi</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">ID Transaksi</th>
+                                                <th scope="col">Anggota</th>
+                                                <th scope="col">Buku</th>
+                                                <th scope="col">Tanggal Pinjam</th>
+                                                <th scope="col">Jatuh Tempo</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Denda</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span class="fw-bold text-primary">TXN001</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=JD" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <div>
+                                                            <div class="fw-bold">John Doe</div>
+                                                            <small class="text-muted">LIB001</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Clean Code</div>
+                                                        <small class="text-muted">BK001</small>
+                                                    </div>
+                                                </td>
+                                                <td>15 Jan 2024</td>
+                                                <td>29 Jan 2024</td>
+                                                <td><span class="badge bg-success">Dipinjam</span></td>
+                                                <td>-</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Lihat Detail</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-return-left me-2"></i>Proses Pengembalian</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-clock me-2"></i>Perpanjang</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Kirim Reminder</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-warning" href="#"><i class="bi bi-exclamation-triangle me-2"></i>Laporkan Hilang</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="fw-bold text-primary">TXN002</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/28a745/ffffff?text=JS" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <div>
+                                                            <div class="fw-bold">Jane Smith</div>
+                                                            <small class="text-muted">LIB002</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">JavaScript Guide</div>
+                                                        <small class="text-muted">BK002</small>
+                                                    </div>
+                                                </td>
+                                                <td>10 Jan 2024</td>
+                                                <td>24 Jan 2024</td>
+                                                <td><span class="badge bg-danger">Terlambat</span></td>
+                                                <td>Rp 15,000</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Lihat Detail</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-return-left me-2"></i>Proses Pengembalian</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Kirim Reminder</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-cash me-2"></i>Bayar Denda</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-warning" href="#"><i class="bi bi-exclamation-triangle me-2"></i>Laporkan Hilang</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="fw-bold text-primary">TXN003</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/32x32/dc3545/ffffff?text=MJ" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                                                        <div>
+                                                            <div class="fw-bold">Michael Johnson</div>
+                                                            <small class="text-muted">LIB003</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">Design Patterns</div>
+                                                        <small class="text-muted">BK003</small>
+                                                    </div>
+                                                </td>
+                                                <td>12 Jan 2024</td>
+                                                <td>26 Jan 2024</td>
+                                                <td><span class="badge bg-info">Dikembalikan</span></td>
+                                                <td>-</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-link btn-sm" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Lihat Detail</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-printer me-2"></i>Cetak Struk</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-text me-2"></i>Riwayat Lengkap</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <nav aria-label="Table pagination">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-muted">
+                                            Menampilkan 1 sampai 10 dari 2,847 data
+                                        </div>
+                                        <ul class="pagination mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#">1</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Selanjutnya</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Loan Modal -->
+    <div class="modal fade" id="addLoanModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Peminjaman Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="memberSelect" class="form-label">Pilih Anggota *</label>
+                                <select class="form-select" id="memberSelect" required>
+                                    <option value="">Pilih Anggota...</option>
+                                    <option value="LIB001">LIB001 - John Doe</option>
+                                    <option value="LIB002">LIB002 - Jane Smith</option>
+                                    <option value="LIB003">LIB003 - Michael Johnson</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bookSelect" class="form-label">Pilih Buku *</label>
+                                <select class="form-select" id="bookSelect" required>
+                                    <option value="">Pilih Buku...</option>
+                                    <option value="BK001">BK001 - Clean Code</option>
+                                    <option value="BK002">BK002 - JavaScript Guide</option>
+                                    <option value="BK003">BK003 - Design Patterns</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="loanDate" class="form-label">Tanggal Pinjam *</label>
+                                <input type="date" class="form-control" id="loanDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="dueDate" class="form-label">Tanggal Jatuh Tempo *</label>
+                                <input type="date" class="form-control" id="dueDate" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loanNotes" class="form-label">Catatan</label>
+                            <textarea class="form-control" id="loanNotes" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary">Simpan Peminjaman</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

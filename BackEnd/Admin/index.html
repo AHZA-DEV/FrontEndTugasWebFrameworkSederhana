@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Digital Library</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-shield-check text-primary me-2"></i>
+                    <span class="fw-bold">Admin Panel</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="list-unstyled">
+                    <li class="menu-item active">
+                        <a href="index.html" class="menu-link" data-title="Beranda">
+                            <i class="bi bi-house-door"></i>
+                            <span>Beranda</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-users.html" class="menu-link" data-title="Kelola Anggota">
+                            <i class="bi bi-people"></i>
+                            <span>Kelola Anggota</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-books.html" class="menu-link" data-title="Kelola Buku">
+                            <i class="bi bi-book"></i>
+                            <span>Kelola Buku</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-loans.html" class="menu-link" data-title="Kelola Peminjaman">
+                            <i class="bi bi-journal-arrow-up"></i>
+                            <span>Kelola Peminjaman</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="manage-categories.html" class="menu-link" data-title="Kelola Kategori">
+                            <i class="bi bi-tags"></i>
+                            <span>Kelola Kategori</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="reports.html" class="menu-link" data-title="Laporan">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Laporan</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="settings.html" class="menu-link" data-title="Pengaturan">
+                            <i class="bi bi-gear"></i>
+                            <span>Pengaturan</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="search-box me-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Cari data...">
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-nav flex-row align-items-center">
+                        <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">
+                            <i class="bi bi-sun theme-icon"></i>
+                        </button>
+                        
+                        <div class="dropdown me-3">
+                            <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    5
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
+                                <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=A" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="container-fluid p-4">
+                <!-- Welcome Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="welcome-section">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h2 class="mb-2">Selamat Datang, Admin</h2>
+                                    <p class="text-muted mb-0">Dashboard Digital Library Management System. Kelola perpustakaan dengan mudah dan efisien.</p>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                            <i class="bi bi-calendar3 me-2"></i>Hari ini (${new Date().toLocaleDateString('id-ID')})
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards Row -->
+                <div class="row mb-4">
+                    <!-- Total Anggota -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card stat-card stat-card-blue h-100">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-white-50">Total Anggota</h6>
+                                <h2 class="card-title text-white mb-2">1,247</h2>
+                                <small class="text-white-50">+15% dari bulan lalu</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Buku -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card stat-card stat-card-purple h-100">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-white-50">Total Buku</h6>
+                                <h2 class="card-title text-white mb-2">5,634</h2>
+                                <small class="text-white-50">+8% dari bulan lalu</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buku Dipinjam -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card stat-card stat-card-indigo h-100">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-white-50">Sedang Dipinjam</h6>
+                                <h2 class="card-title text-white mb-2">432</h2>
+                                <small class="text-white-50">-3% dari minggu lalu</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kategori -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card stat-card stat-card-orange h-100">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-white-50">Total Kategori</h6>
+                                <h2 class="card-title text-white mb-2">28</h2>
+                                <small class="text-white-50">2 kategori baru</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Aksi Cepat</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <a href="manage-users.html" class="card border-primary text-decoration-none">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-person-plus text-primary" style="font-size: 2rem;"></i>
+                                                <h6 class="card-title mt-2">Tambah Anggota</h6>
+                                                <p class="card-text">Daftarkan anggota baru</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <a href="manage-books.html" class="card border-success text-decoration-none">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-book text-success" style="font-size: 2rem;"></i>
+                                                <h6 class="card-title mt-2">Tambah Buku</h6>
+                                                <p class="card-text">Tambah koleksi buku baru</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <a href="manage-loans.html" class="card border-warning text-decoration-none">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-journal-arrow-up text-warning" style="font-size: 2rem;"></i>
+                                                <h6 class="card-title mt-2">Proses Peminjaman</h6>
+                                                <p class="card-text">Kelola peminjaman buku</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <a href="reports.html" class="card border-info text-decoration-none">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-graph-up text-info" style="font-size: 2rem;"></i>
+                                                <h6 class="card-title mt-2">Lihat Laporan</h6>
+                                                <p class="card-text">Analisis dan statistik</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Notifications -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Aktivitas Terbaru</h5>
+                                    <i class="bi bi-clock text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="activity-list">
+                                    <div class="activity-item mb-3 d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="bi bi-person-plus text-success"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><strong>Anggota Baru</strong></p>
+                                            <p class="text-muted mb-0 small">Sarah Johnson mendaftar sebagai anggota</p>
+                                            <small class="text-muted">2 menit yang lalu</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item mb-3 d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="bi bi-book text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><strong>Buku Dipinjam</strong></p>
+                                            <p class="text-muted mb-0 small">Michael Brown meminjam "Clean Code"</p>
+                                            <small class="text-muted">15 menit yang lalu</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item mb-3 d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="bi bi-arrow-return-left text-info"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><strong>Buku Dikembalikan</strong></p>
+                                            <p class="text-muted mb-0 small">Emma Davis mengembalikan "JavaScript Guide"</p>
+                                            <small class="text-muted">1 jam yang lalu</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">Status Peminjaman</h5>
+                                    <a href="manage-loans.html" class="text-primary text-decoration-none">Lihat Semua</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="loan-stats">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted">Peminjaman Hari Ini</span>
+                                        <span class="fw-bold text-success">23</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted">Pengembalian Hari Ini</span>
+                                        <span class="fw-bold text-info">18</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted">Terlambat Dikembalikan</span>
+                                        <span class="fw-bold text-danger">7</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted">Perpanjangan Hari Ini</span>
+                                        <span class="fw-bold text-warning">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
